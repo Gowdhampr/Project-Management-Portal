@@ -1,9 +1,12 @@
 import React from 'react'
 
+// components
+import PageTitle from "../../components/core/PageTitle";
+
 function Dashboard() {
     return (
         <div>
-            <h1>Dashboard</h1>
+            <PageTitle name="Dashboard" />
         </div>
     )
 }

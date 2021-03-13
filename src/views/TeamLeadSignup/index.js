@@ -7,7 +7,6 @@ import userService from "../../service/userService";
 
 // components
 import Title from "../../components/core/Title";
-import PageTitle from "../../components/core/PageTitle";
 
 const Login = () => {
   // const history = useHistory();
@@ -38,10 +37,9 @@ const Login = () => {
   }
 
   return (
-    <div className="d-flex mt-5 align-items-center h-100vh flex-column">
-      <PageTitle name="Project Manager" />
-      <div className="card p-3 w-50 mt-3">
-        <Title name="Team Lead Sign Up" />
+    <div className="d-flex mt-3 align-items-center h-100vh flex-column">
+      <div className="card p-3 mt-3">
+        <Title className="text-center" name="Team Lead Sign Up" />
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -61,7 +59,10 @@ const Login = () => {
             <label htmlFor="exampleInputPassword1">Password</label>
             <input name="password" required type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <div className="text-center">
+            <button type="submit" className="btn btn-primary">Submit</button>
+
+          </div>
         </form>
       </div>
     </div>

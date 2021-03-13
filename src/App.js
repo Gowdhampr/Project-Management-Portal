@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-// Style
-import "./App.css";
-
 /** Layouts **/
 import DefaultLayout from "./containers/DefaultLayout";
 
