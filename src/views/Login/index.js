@@ -31,7 +31,7 @@ const Login = () => {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center h-100vh flex-column">
+    <div className="d-flex mt-5 align-items-center h-100vh flex-column">
       <PageTitle name="Project Manager" />
       <div className="card p-3 w-50 mt-3">
         <Title name="Login" />
