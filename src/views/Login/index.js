@@ -1,5 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 // Config
 import authService from "../../service/authService";
@@ -9,10 +10,13 @@ import Title from "../../components/core/Title";
 import PageTitle from "../../components/core/PageTitle";
 
 const Login = () => {
+  const history = useHistory();
+
   const loginUser = async data => {
     try {
-      const res = await authService.login(data);
-      toast.success(res.data.message);
+      await authService.login(data);
+
+      console.log(history.push("/"));
     } catch (err) {
       toast.error(err.response.data.message);
     }
