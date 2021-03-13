@@ -12,7 +12,7 @@ const Login = () => {
   const loginUser = async data => {
     try {
       const res = await authService.login(data);
-      toast.success(res.response.data.message);
+      toast.success(res.data.message);
     } catch (err) {
       toast.error(err.response.data.message);
     }
