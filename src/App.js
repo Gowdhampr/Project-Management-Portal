@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import DefaultLayout from "./containers/DefaultLayout";
 
 // Views
-import Dashboard from "./views/Dashboard";
+import Project from "./views/Project";
 import Login from "./views/Login";
 import TeamLeadSignup from "./views/TeamLeadSignup";
 
@@ -23,9 +23,9 @@ function App() {
           <Switch>
             <DefaultLayout
               exact
-              name="Dashboard"
+              name="Project"
               path="/"
-              component={Dashboard}
+              component={Project}
             />
             <DefaultLayout
               exact

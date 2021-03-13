@@ -1,5 +1,5 @@
 // Home
-import Dashboard from "./views/Dashboard";
+import Project from "./views/Project";
 import Login from "./views/Login";
 import TeamLeadSignup from "./views/TeamLeadSignup";
 
@@ -8,8 +8,8 @@ const routes = [
   {
     path: "/",
     exact: true,
-    name: "Dashboard",
-    component: Dashboard
+    name: "Project",
+    component: Project
   },
   {
     path: "/login",

@@ -17,6 +17,10 @@ body {
   font-weight: 600;
 }
 
+.mt-25 {
+  margin-top: 25vh;
+}
+
 .primary-color {
   background-color: #58D7BC;
 }

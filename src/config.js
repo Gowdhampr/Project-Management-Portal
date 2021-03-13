@@ -4,6 +4,7 @@ const getAPIWithBaseUrl = endPoint => {
 
 export const endPoint = {
   userAPI: getAPIWithBaseUrl("/user/v1"),
+  projectAPI: getAPIWithBaseUrl("/project/v1")
 }
 
 export default {
