@@ -12,6 +12,7 @@ import DefaultLayout from "./containers/DefaultLayout";
 // Views
 import Dashboard from "./views/Dashboard";
 import Login from "./views/Login";
+import TeamLeadSignup from "./views/TeamLeadSignup";
 
 /*
    App Content
@@ -34,6 +35,12 @@ function App() {
               name="Login"
               path="/login"
               component={Login}
+            />
+            <DefaultLayout
+              exact
+              name="Team Lead Sing-up"
+              path="/team-lead-signup"
+              component={TeamLeadSignup}
             />
           </Switch>
         </Router>

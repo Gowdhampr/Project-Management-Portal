@@ -3,7 +3,7 @@ const getAPIWithBaseUrl = endPoint => {
 }
 
 export const endPoint = {
-  userAPI: getAPIWithBaseUrl("/user/v1")
+  userAPI: getAPIWithBaseUrl("/user/v1"),
 }
 
 export default {
