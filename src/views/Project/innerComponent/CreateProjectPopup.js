@@ -1,5 +1,9 @@
 import React from 'react';
+import { toast } from "react-toastify";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Form, Label, FormGroup } from 'reactstrap';
+
+// Service
+import projectService from "../../../service/projectService";
 
 const CreateProjectModel = (props) => {
   const {
@@ -8,6 +12,16 @@ const CreateProjectModel = (props) => {
     toggle,
   } = props;
 
+  const createProject = async data => {
+    try {
+      const res = await projectService.create(data);
+      toast.error(res.response.data.message);
+
+    } catch (err) {
+      toast.error(err.response.data.message);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -15,12 +29,14 @@ const CreateProjectModel = (props) => {
 
     const data = {
       name: name.value,
+      description: projectDescription.value,
       technology: technology.value,
-      projectDescription: projectDescription.value,
-      teamLeadId: 2
+      status: "Pending",
+      staffId: 2,
+      teamLeadId: 3,
     }
 
-    console.log(data);
+    createProject(data);
   }
 
   return (
