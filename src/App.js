@@ -11,6 +11,7 @@ import Project from "./views/Project";
 import ProjectList from "./views/ProjectList";
 import Login from "./views/Login";
 import TeamLeadSignup from "./views/TeamLeadSignup";
+import ProjectDetails from "./views/Project/ProjectDetails";
 
 /*
    App Content
@@ -33,6 +34,12 @@ function App() {
               name="Project List"
               path="/project/list"
               component={ProjectList}
+            />
+            <DefaultLayout
+              exact
+              name="Project Details"
+              path="/project/:id"
+              component={ProjectDetails}
             />
             <DefaultLayout
               exact

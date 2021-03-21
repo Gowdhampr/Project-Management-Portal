@@ -15,9 +15,14 @@ export const getDetailApi = (id) => {
   return httpService.get(`${endPoint.projectAPI}/${id}`);
 };
 
+export const saveDetails = id => {
+  return httpService.put(`${endPoint.projectAPI}/${id}`);
+};
+
 export default {
   create,
   getListApi,
   getDetailApi,
+  saveDetails,
   TEAM_LEAD_ROLE_ID,
 };

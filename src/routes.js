@@ -3,6 +3,7 @@ import Project from "./views/Project";
 import ProjectList from "./views/ProjectList";
 import Login from "./views/Login";
 import TeamLeadSignup from "./views/TeamLeadSignup";
+import ProjectDetails from "./views/Project/ProjectDetails";
 
 // List of routes
 const routes = [
@@ -17,6 +18,12 @@ const routes = [
     exact: true,
     name: "Project List",
     component: ProjectList
+  },
+  {
+    path: "/project/:id",
+    exact: true,
+    name: "Project Details",
+    component: ProjectDetails
   },
   {
     path: "/login",
