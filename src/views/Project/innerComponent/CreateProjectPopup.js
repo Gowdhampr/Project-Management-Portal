@@ -14,8 +14,8 @@ const CreateProjectModel = (props) => {
 
   const createProject = async data => {
     try {
-      const res = await projectService.create(data);
-      toast.error(res.response.data.message);
+      const response = await projectService.create(data);
+      toast.success(response.data.message);
 
       toggle();
     } catch (err) {

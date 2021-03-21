@@ -13,9 +13,13 @@ const Login = () => {
 
   const loginUser = async data => {
     try {
-      await authService.login(data);
+      const response = await authService.login(data);
+      localStorage.setItem("token", response.data.user.token);
+      localStorage.setItem("userId", response.data.user.id);
+      localStorage.setItem("role", response.data.user.role);      
 
-      console.log(history.push("/"));
+      // Redirect to Dashboard
+      history.push("/");
     } catch (err) {
       toast.error(err.response.data.message);
     }
