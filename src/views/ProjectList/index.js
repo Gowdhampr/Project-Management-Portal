@@ -36,7 +36,38 @@ function Dashboard() {
     return (
         <div>
             <PageTitle name="Project" />
+
+            {(isAdmin() || isStaff()) && (
+                <>
+                    <div class="d-flex mb-2">
+                        <div class="p-2">Projects</div>
+                        <div class="p-2 ml-auto"><Button color="primary" onClick={toggle}><i class="bi bi-plus-circle-dotted mr-1"></i> Create Project</Button></div>
+                    </div>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Technology</th>
+                                <th>Batch</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {projects && projects.length && projects.map(project => (
+                                <tr>
+                                    <td>{project.name}</td>
+                                    <td>{project.technology}</td>
+                                    <td>{project.batch}</td>
+                                    <td><a href={`/project/details/${project.id}`}>{project.id}</a></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </>
+            )}
             
+            {isStudent() && (
                 <>
                     {/* User */}
                     <div className="text-center mt-25">
@@ -44,6 +75,7 @@ function Dashboard() {
                         <Button color="primary" onClick={toggle}><i class="bi bi-plus-circle-dotted mr-1"></i> Create Project</Button>
                     </div>
                 </>
+            )}
 
              {/* Create project model */}
              <CreateProjectPopup toggle={toggle} modal={modal} />
