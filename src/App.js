@@ -8,6 +8,7 @@ import DefaultLayout from "./containers/DefaultLayout";
 
 // Views
 import Project from "./views/Project";
+import ProjectList from "./views/ProjectList";
 import Login from "./views/Login";
 import TeamLeadSignup from "./views/TeamLeadSignup";
 
@@ -24,8 +25,14 @@ function App() {
             <DefaultLayout
               exact
               name="Project"
-              path="/"
+              path="/project"
               component={Project}
+            />
+            <DefaultLayout
+              exact
+              name="Project List"
+              path="/project/list"
+              component={ProjectList}
             />
             <DefaultLayout
               exact
