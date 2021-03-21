@@ -8,7 +8,7 @@ export const create = data => {
 };
 
 export const getListApi = data => {
-  return httpService.post(`${endPoint.projectAPI}/list`, data);
+  return httpService.get(`${endPoint.projectAPI}/list`, data);
 };
 
 export default {
