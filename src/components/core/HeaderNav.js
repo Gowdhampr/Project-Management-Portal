@@ -1,9 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import logo from "../../assets/logo/logo.svg"
 
 const HeaderNav = () => {
+  const history = useHistory();
+
+  const logout = () => {
+    localStorage.removeItem("role");
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    history.push("/login");
+  };
+
   return (
     <nav className="navbar navbar-light bg-light px-5">
       <Link className="navbar-brand" href="/">
@@ -12,6 +21,10 @@ const HeaderNav = () => {
           <h1 className="brand-name ml-2">Project Manager</h1>
         </div>
       </Link>
+
+      {localStorage.getItem("token") && (
+        <a href="#" onClick={logout}>Logout</a>
+      )}
     </nav>
   );
 };
