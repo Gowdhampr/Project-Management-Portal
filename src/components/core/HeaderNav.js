@@ -22,9 +22,11 @@ const HeaderNav = () => {
         </div>
       </Link>
 
-      {localStorage.getItem("token") ? (
+      {localStorage.getItem("token") && (
         <a href="#" onClick={logout}>Logout</a>
-      ) : (
+      )}
+
+      {!localStorage.getItem("token") && (
         <a href="/team-lead-signup">Register</a>
       )}
 
