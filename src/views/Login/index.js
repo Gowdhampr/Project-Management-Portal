@@ -8,6 +8,9 @@ import authService from "../../service/authService";
 // components
 import Title from "../../components/core/Title";
 
+//Helper
+import { isAdmin, isStaff, isStudent } from "../../lib/helper";
+
 const Login = () => {
   const history = useHistory();
 
@@ -16,10 +19,15 @@ const Login = () => {
       const response = await authService.login(data);
       localStorage.setItem("token", response.data.user.token);
       localStorage.setItem("userId", response.data.user.id);
-      localStorage.setItem("role", response.data.user.role);      
-
-      // Redirect to Dashboard
-      history.push("/");
+      localStorage.setItem("role", response.data.user.role); 
+      
+      if (isAdmin() || isStaff()) {
+        // Redirect to Dashboard
+        history.push("/project/list");
+      } else if(isStudent()) {
+        // Redirect to Dashboard
+        history.push("/project");
+      }      
     } catch (err) {
       toast.error(err.response.data.message);
     }
