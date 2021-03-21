@@ -7,7 +7,12 @@ export const create = data => {
   return httpService.post(`${endPoint.projectAPI}`, data);
 };
 
+export const getListApi = data => {
+  return httpService.post(`${endPoint.projectAPI}/list`, data);
+};
+
 export default {
   create,
+  getListApi,
   TEAM_LEAD_ROLE_ID,
 };
