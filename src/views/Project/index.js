@@ -19,7 +19,7 @@ function Dashboard() {
 
     useEffect(() => {
         getProjectList();
-    }, [projects]);
+    }, []);
 
     const getProjectList = async () => {
         try {
@@ -50,6 +50,7 @@ function Dashboard() {
                                 <th>Name</th>
                                 <th>Technology</th>
                                 <th>Batch</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,6 +59,7 @@ function Dashboard() {
                                     <td>{project.name}</td>
                                     <td>{project.technology}</td>
                                     <td>{project.batch}</td>
+                                    <td><a href={`/project/details/${project.id}`}>{project.id}</a></td>
                                 </tr>
                             ))}
                         </tbody>
