@@ -21,13 +21,13 @@ const Login = () => {
       localStorage.setItem("userId", response.data.user.id);
       localStorage.setItem("role", response.data.user.role); 
       
-      if (isAdmin() || isStaff()) {
+      if (response.data.user.role === 1 || response.data.user.role === 2) {
         // Redirect to Dashboard
         history.push("/project/list");
-      } else if(isStudent()) {
+      } else if(response.data.user.role === 3) {
         // Redirect to Dashboard
         history.push("/project");
-      }      
+      }
     } catch (err) {
       toast.error(err.response.data.message);
     }
