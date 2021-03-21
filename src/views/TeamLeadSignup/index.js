@@ -1,6 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 // Config
 import userService from "../../service/userService";
@@ -8,13 +8,18 @@ import userService from "../../service/userService";
 // components
 import Title from "../../components/core/Title";
 
-const Login = () => {
-  // const history = useHistory();
+const Register = () => {
+  const history = useHistory();
 
   const createTeamLead = async data => {
     try {
-      const res = await userService.create(data);
-      toast.success(res.data.message);
+      const response = await userService.create(data);
+
+      localStorage.setItem("token", response.data.user.token);
+      localStorage.setItem("userId", response.data.user.id);
+      localStorage.setItem("role", response.data.user.role); 
+
+      history.push("/project")
 
     } catch (err) {
       toast.error(err.response.data.message);
@@ -69,4 +74,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
