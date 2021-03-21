@@ -13,18 +13,21 @@ import { isAdmin, isStaff, isStudent } from "../../lib/helper";
 
 function Dashboard() {
     const [modal, setModal] = useState(false);
+    const [projects, setProjects] = useState([]);
 
     const toggle = () => setModal(!modal);
 
     useEffect(() => {
         getProjectList();
-    });
+    }, [projects]);
 
     const getProjectList = async () => {
         try {
           const response = await projectService.getListApi();
 
-          console.log("Res--->", response)
+          const projectLists = response.data.projectList;
+
+          setProjects(projectLists);
         } catch (err) {
           console.log(err);
         }
@@ -36,8 +39,7 @@ function Dashboard() {
 
             {(isAdmin() || isStaff()) && (
                 <>
-                    <p>Admin</p>
-                    <div class="d-flex">
+                    <div class="d-flex mb-2">
                         <div class="p-2">Projects</div>
                         <div class="p-2 ml-auto"><Button color="primary" onClick={toggle}><i class="bi bi-plus-circle-dotted mr-1"></i> Create Project</Button></div>
                     </div>
@@ -51,11 +53,13 @@ function Dashboard() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
-                            </tr>
+                            {projects && projects.length && projects.map(project => (
+                                <tr>
+                                    <td>{project.name}</td>
+                                    <td>{project.technology}</td>
+                                    <td>{project.batch}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </>
