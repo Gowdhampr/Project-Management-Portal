@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import PageTitle from "../../components/core/PageTitle";
 import CreateProjectPopup from "./innerComponent/CreateProjectPopup";
 import { Button } from "reactstrap";
+import { Link, useHistory } from "react-router-dom";
 
 // Service
 import projectService from "../../service/projectService";
@@ -12,6 +13,7 @@ import projectService from "../../service/projectService";
 import { isAdmin, isStaff, isStudent } from "../../lib/helper";
 
 function Dashboard() {
+    const history = useHistory();
     const [modal, setModal] = useState(false);
     const [projects, setProjects] = useState([]);
 
@@ -46,7 +48,7 @@ function Dashboard() {
                 </>
 
              {/* Create project model */}
-             <CreateProjectPopup toggle={toggle} modal={modal} />
+             <CreateProjectPopup toggle={toggle} modal={modal} history={history} />
         </div>
     )
 }

@@ -10,13 +10,16 @@ const CreateProjectModel = (props) => {
     className,
     modal,
     toggle,
+    history
   } = props;
 
   const createProject = async data => {
     try {
       const response = await projectService.create(data);
       toast.success(response.data.message);
+      console.log(response)
       toggle();
+      history.push(`/project/${response.data.projectDetails.id}`)
     } catch (err) {
       toast.error(err.response.data.message);
     }

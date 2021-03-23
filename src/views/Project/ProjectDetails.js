@@ -21,7 +21,7 @@ const ProjectDetails= props => {
 
     const getProjectDetails = async (projectId) => {
         try {
-          const response = await projectService.getDetails(projectId);
+          const response = await projectService.getDetailApi(projectId);
 
           const project = response.data.projectDetails;
           setProjectDetails(project);
@@ -67,7 +67,7 @@ const ProjectDetails= props => {
                             <Input required type="textarea" rows={7} name="projectDescription" id="projectDescription" placeholder="Describe your project..."  defaultValue={projectsDetails.description} />
                         </FormGroup>
                         
-                        <Button color="primary" type="Submit">Submit</Button>{' '}
+                        {isAdmin() && <Button color="primary" type="Submit">Submit</Button>}
                     </Form>
                 </>
             {/* )} */}
